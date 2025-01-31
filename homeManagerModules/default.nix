@@ -4,5 +4,6 @@ in {
   imports = [
     ./features/hyprland.nix
     ./features/gtk.nix
+    ./features/git.nix
   ];
 }

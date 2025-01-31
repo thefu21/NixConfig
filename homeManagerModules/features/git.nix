@@ -1,7 +1,11 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   programs.git = {
+    package = pkgs.gitFull;
     enable = true;
-    userEmail = "thefu21@gmx.net";
-    userName = "thefu21";
+    userEmail = "theodor.fumics@gmx.net";
+    userName = "Theodor Fumics";
+    extraConfig = { 
+        credential.helper = "libsecret";
+    };
   };
 }
