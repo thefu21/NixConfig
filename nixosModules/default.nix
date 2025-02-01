@@ -1,6 +1,6 @@
 {inputs, pkgs, ...}: {
   imports = [
-    ./features/stylix
+    ./features/stylix.nix
   ];
 }
 

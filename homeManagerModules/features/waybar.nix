@@ -9,9 +9,9 @@
       waybar = {
         layer = "bottom";
         position = "top";
-        margin-top = 0;
-        margin-left = 0;
-        margin-right = 0;
+	margin-top = 0;
+	margin-left = 0;
+	margin-right = 0;
         margin-bottom = 0;
         spacing = 10;
         name = "waybar";
@@ -29,7 +29,7 @@
           active-only = false;
           all-outputs = false;
           disable-scroll = true;
-          format = "{name}";
+          format = "";
           format-icons = {
             active = "";
             default = "";
@@ -138,32 +138,7 @@
     };
 
     style = let
-      rosewater = "#f5e0dc";
-      flamingo  = "#f2cdcd";
-      pink      = "#f5c2e7";
-      mauve     = "#cba6f7";
-      red       = "#f38ba8";
-      maroon    = "#eba0ac";
-      peach     = "#fab387";
-      yellow    = "#f9e2af";
-      green     = "#a6e3a1";
-      teal      = "#94e2d5";
-      sky       = "#89dceb";
-      sapphire  = "#74c7ec";
-      blue      = "#89b4fa";
-      lavender  = "#b4befe";
-      text      = "#cdd6f4";
-      subtext1  = "#bac2de";
-      subtext0  = "#a6adc8";
-      overlay2  = "#9399b2";
-      overlay1  = "#7f849c";
-      overlay0  = "#6c7086";
-      surface2  = "#585b70";
-      surface1  = "#45475a";
-      surface0  = "#313244";
-      base      = "#000000";
-      mantle    = "#000000";
-      crust     = "#000000";
+      colors = config.stylix.base16Scheme;
     in ''
       * {
         min-height: 0px;
@@ -177,24 +152,20 @@
         border-radius: 10px;
         margin: 4px 4px 4px 4px;
 	padding: 0 4px;
-        background-color: ${base};
-        box-shadow: 0px 0px 3px 0px ${base};
+        background-color: #${colors.base00};
+        box-shadow: 0px 0px 3px 0px #${colors.base00};
       }
 
       tooltip {
         font-family: "FiraCode Nerd Font SemBd";
         font-size: 13px;
-        background-color: ${base};
+        background-color: #${colors.base00};
         border-radius: 10px;
-      }
-
-      #image {
-        padding-left: 8px;
       }
 
       #workspaces {
         font-size: 0px;
-        background: ${base};
+        background: #${colors.base00};
         margin-top: 3px;
         margin-bottom: 3px;
         padding: 10px 0px;
@@ -204,24 +175,23 @@
         padding: 0px;
         margin: 0px 5px;
         min-width: 10px;
-	min-height: 10px;
+        min-height: 10px;
         border-radius: 10px;
-        background: ${lavender};
+        background: #${colors.base07};
         transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.empty {
-        background: ${surface0};
+        background: #${colors.base02};
       }
 
       #workspaces button.active {
-        background: ${blue};
+        background: #${colors.base0D};
         min-width: 40px;
-        background-size: 400% 400%;
       }
 
       #workspaces button:hover {
-        background: ${sapphire};
+        background: #${colors.base06};
         min-width: 40px;
         background-size: 400% 400%;
       }
@@ -241,7 +211,7 @@
       #custom-showtray {
         font-family: "FiraCode Nerd Font SemBd";
         font-size: 14px;
-        color: ${text};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
@@ -252,48 +222,48 @@
       }
 
       #cpu {
-        color: ${green};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #battery {
-        color: ${green};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #memory {
-        color: ${red};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #network {
-        color: ${teal};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #pulseaudio {
-        color: ${rosewater};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #clock {
-        color: ${peach};
+        color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #custom-logo {
-	color: ${blue};
+	color: #${colors.base0D};
 	font-size: 24px;
       }
 
       #backlight {
-	color: ${blue};
+	color: #${colors.base05};
         padding-left: 2px;
         padding-right: 2px;
       }
