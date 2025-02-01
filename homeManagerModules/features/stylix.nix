@@ -27,7 +27,7 @@
       base0F = "f2cdcd"; # flamingo
     };
 
-    image = ../../wallpapers/astronaut.png;
+    image = ../../wallpapers/cabin-4.png;
 
     fonts = {
       monospace = {
@@ -52,8 +52,9 @@
     };
 
     cursor = {
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "catppuccin-mocha-mauve-cursors";
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
     };
 
     targets.waybar.enable = false;

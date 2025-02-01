@@ -13,11 +13,6 @@
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
 
-      env = [
-        "XCURSOR_SIZE=24"
-        "HYPRCURSOR_SIZE=24"
-      ];
-
       exec-once = "waybar &";
 
       general = {
@@ -27,6 +22,11 @@
         resize_on_border = false;
         allow_tearing = false;
         layout = "dwindle";
+      };
+
+      misc = {
+	disable_splash_rendering = true;
+        disable_hyprland_logo = true;
       };
 
       decoration = {
@@ -82,11 +82,6 @@
 
       master = {
         new_status = "master";
-      };
-
-      misc = {
-        force_default_wallpaper = -1;
-        disable_hyprland_logo = false;
       };
 
       input = {

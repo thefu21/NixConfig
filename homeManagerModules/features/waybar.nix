@@ -23,7 +23,7 @@
 
         modules-left = [ "custom/logo"  "hyprland/window" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "cpu" "memory" "battery" "network" "pulseaudio" "backlight" "clock" ];
+        modules-right = [ "group/systray" "cpu" "memory" "battery" "network" "pulseaudio" "backlight" "clock" ];
 
         "hyprland/workspaces" = {
           active-only = false;
@@ -46,6 +46,20 @@
           format = "{class}";
           rewrite = {
           };
+        };
+
+	"group/systray" = {
+          "orientation" = "horizontal";
+          "modules" = ["custom/showtray" "tray"];
+          "drawer" = {
+            "transition-duration" = 300;
+            "children-class" = "minimized";
+          };
+        };
+
+	"custom/showtray" = {
+          "format" = "";
+          "tooltip" = false;
         };
 
         tray = {
@@ -114,9 +128,9 @@
           };
           calendar = {
             format = {
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+              days = "<span><b>{}</b></span>";
+              months = "<span><b>{}</b></span>";
+              today = "<span><b><u>{}</u></b></span>";
             };
             mode = "month";
             mode-mon-col = 3;
@@ -159,6 +173,7 @@
       tooltip {
         font-family: "FiraCode Nerd Font SemBd";
         font-size: 13px;
+        color: #${colors.base05};
         background-color: #${colors.base00};
         border-radius: 10px;
       }
