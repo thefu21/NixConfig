@@ -42,8 +42,6 @@
     LC_TIME = "de_AT.UTF-8";
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 
@@ -106,14 +104,6 @@
     wl-clipboard
     brightnessctl
   ];
-
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      jetbrains-mono
-      nerd-fonts.fira-code
-    ];
-  };
 
   programs.fish.enable = true;
   users.users.thefu21.shell = pkgs.fish;

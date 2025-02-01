@@ -1,2 +1,6 @@
-{inputs, pkgs, ...}: {}
+{inputs, pkgs, ...}: {
+  imports = [
+    ./features/stylix
+  ];
+}
 

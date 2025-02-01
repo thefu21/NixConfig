@@ -11,20 +11,13 @@
 
     #Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+
+    #Stylix
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
     myLib = import ./myLib/default.nix { inherit inputs; };
-
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-      inherit system;
-
-      config = {
-        allowUnfree = true;
-      };
-    };
   in
     with myLib; {
       nixosConfigurations = {
@@ -34,6 +27,7 @@
       homeConfigurations = {
         "thefu21@nixos" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
       };
+
       nixosModules.default = ./nixosModules;
       homeManagerModules.default = ./homeManagerModules;
     };
