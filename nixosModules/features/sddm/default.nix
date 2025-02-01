@@ -1,9 +1,11 @@
 { pkgs, lib, ... }: {
   services.displayManager = {
+    sessionPackages = [pkgs.hyprland];
+
     sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "catppuccin-mocha";
+      theme = "catpucchin-mocha";
       package = pkgs.kdePackages.sddm;
     };
   };
@@ -16,6 +18,8 @@
       loginBackground = true;
       background = "${../../../wallpapers/cabin-4.png}";
     })
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
   ];
 
   services.xserver.enable = true;
