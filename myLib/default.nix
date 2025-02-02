@@ -20,12 +20,9 @@ in rec {
     inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = pkgsFor sys;
       extraSpecialArgs = {
-        inherit inputs outputs myLib;
+        inherit inputs myLib outputs;
       };
       modules = [
-        {
-          nixpkgs.config.allowUnfree = true;
-	}
         config
 	outputs.homeManagerModules.default
       ];
