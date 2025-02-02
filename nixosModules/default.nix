@@ -1,6 +1,6 @@
 {inputs, pkgs, ...}: {
   imports = [
-    ./features/sddm
+    ./features/sddm.nix
   ];
 }
 

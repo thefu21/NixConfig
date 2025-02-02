@@ -5,7 +5,7 @@
     sddm = {
       enable = true;
       wayland.enable = true;
-      theme = "catpucchin-mocha";
+      theme = "catppuccin-mocha";
       package = pkgs.kdePackages.sddm;
     };
   };
@@ -15,11 +15,9 @@
       flavor = "mocha";
       font  = "Noto Sans";
       fontSize = "9";
-      loginBackground = true;
       background = "${../../../wallpapers/cabin-4.png}";
+      loginBackground = true;
     })
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
   ];
 
   services.xserver.enable = true;
