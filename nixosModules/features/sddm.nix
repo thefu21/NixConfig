@@ -15,7 +15,7 @@
       flavor = "mocha";
       font  = "Noto Sans";
       fontSize = "9";
-      background = "${../../../wallpapers/cabin-4.png}";
+      background = "${../../wallpapers/cabin-4.png}";
       loginBackground = true;
     })
   ];
