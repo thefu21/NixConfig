@@ -110,7 +110,7 @@
       
       bind = [
         "$mod, Return, exec, $terminal"
-        "$mod Shift, Q, killactive"
+        "$mod SHIFT, Q, killactive"
         "$mod, M, exit"
         "$mod, E, exec, $fileManager"
         "$mod, V, togglefloating"
@@ -124,10 +124,32 @@
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
       
+        # Move focus with mod + vim keys
+        "$mod, h, movefocus, l"
+        "$mod, j, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, l, movefocus, d"
+
+        # Move window with mod + arrow keys
+        "$mod, left, movewindow, l"
+        "$mod, right, movewindow, r"
+        "$mod, up, movewindow, u"
+        "$mod, down, movewindow, d"
+      
+        # Move window with mod + vim keys
+        "$mod, h, movewindow, l"
+        "$mod, j, movewindow, r"
+        "$mod, k, movewindow, u"
+        "$mod, l, movewindow, d"
+
+	# Positioning mod
+	"$mod CTRL, Space, togglefloating"
+
         # Switch workspaces with mod + [0-9]
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3" "$mod, 4, workspace, 4"
+        "$mod, 3, workspace, 3" 
+	"$mod, 4, workspace, 4"
         "$mod, 5, workspace, 5"
         "$mod, 6, workspace, 6"
         "$mod, 7, workspace, 7"

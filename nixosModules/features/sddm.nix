@@ -14,7 +14,7 @@
     (catppuccin-sddm.override {
       flavor = "mocha";
       font  = "Noto Sans";
-      fontSize = "9";
+      fontSize = "16";
       background = "${../../wallpapers/cabin-4.png}";
       loginBackground = true;
     })
