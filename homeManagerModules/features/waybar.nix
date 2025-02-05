@@ -148,6 +148,7 @@ with config.lib.stylix.colors.withHashtag;
         "custom/logo" = {
           exec = "echo ' '";
           format = "{}";
+	  tooltip = false;
         };
       };
     };

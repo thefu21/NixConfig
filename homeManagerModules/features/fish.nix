@@ -14,8 +14,9 @@ with config.stylix.base16Scheme;
       set -g fish_color_error ${base08}
       set -g fish_color_param ${base07}
       set -g fish_color_comment ${base04}
-      set -g fish_color_operator ${base00}
+      set -g fish_color_operator ${base0E}
       set -g fish_color_autosuggestion ${base05}
+      set -g fish_color_normal ${base07}
     '';
   };
 }

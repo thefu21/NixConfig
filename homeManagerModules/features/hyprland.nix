@@ -11,7 +11,7 @@
 
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
+      "$menu" = "pkill wofi || wofi -a --show drun";
 
       exec-once = "waybar &";
 

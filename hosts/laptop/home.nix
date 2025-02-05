@@ -6,7 +6,8 @@
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  home.packages = [
+  home.packages = with pkgs; [
+    libreoffice
   ];
 
   home.file = {

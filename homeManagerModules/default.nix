@@ -11,5 +11,6 @@ in {
     ./features/sops.nix
     ./features/fish.nix
     ./features/starship
+    ./features/flameshot.nix
   ];
 }
