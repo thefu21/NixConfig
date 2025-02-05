@@ -113,11 +113,12 @@
         "$mod SHIFT, Q, killactive"
         "$mod, M, exit"
         "$mod, E, exec, $fileManager"
-        "$mod, Space, exec, $menu"
+        "$mod, SPACE, exec, $menu"
         "$mod, P, pseudo"  # dwindle
         "$mod, E, togglesplit"  # dwindle
         "$mod, W, togglegroup"  # dwindle
         "$mod, ESCAPE, exec, hyprlock"
+	", PRINT, exec, hyprshot -m region --clipboard-only"
       
         # Move focus with mod + arrow keys
         "$mod, left, movefocus, l"
