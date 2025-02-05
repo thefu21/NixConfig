@@ -113,10 +113,11 @@
         "$mod SHIFT, Q, killactive"
         "$mod, M, exit"
         "$mod, E, exec, $fileManager"
-        "$mod, V, togglefloating"
         "$mod, Space, exec, $menu"
         "$mod, P, pseudo"  # dwindle
-        "$mod, J, togglesplit"  # dwindle
+        "$mod, E, togglesplit"  # dwindle
+        "$mod, W, togglegroup"  # dwindle
+        "$mod, ESCAPE, exec, hyprlock"
       
         # Move focus with mod + arrow keys
         "$mod, left, movefocus, l"
@@ -126,24 +127,30 @@
       
         # Move focus with mod + vim keys
         "$mod, h, movefocus, l"
-        "$mod, j, movefocus, r"
+        "$mod, l, movefocus, r"
         "$mod, k, movefocus, u"
-        "$mod, l, movefocus, d"
+        "$mod, j, movefocus, d"
 
-        # Move window with mod + arrow keys
-        "$mod, left, movewindow, l"
-        "$mod, right, movewindow, r"
-        "$mod, up, movewindow, u"
-        "$mod, down, movewindow, d"
+        # Move window with mod + SHIFT + arrow keys
+        "$mod SHIFT, left, movewindoworgroup, l"
+        "$mod SHIFT, right, movewindoworgroup, r"
+        "$mod SHIFT, up, movewindoworgroup, u"
+        "$mod SHIFT, down, movewindoworgroup, d"
       
-        # Move window with mod + vim keys
-        "$mod, h, movewindow, l"
-        "$mod, j, movewindow, r"
-        "$mod, k, movewindow, u"
-        "$mod, l, movewindow, d"
+        # Move window with mod + SHIFT + vim keys
+        "$mod SHIFT, h, movewindoworgroup, l"
+        "$mod SHIFT, l, movewindoworgroup, r"
+        "$mod SHIFT, k, movewindoworgroup, u"
+        "$mod SHIFT, j, movewindoworgroup, d"
+
+        # Move focus tabbed
+        "$mod CTRL, h, changegroupactive, l"
+        "$mod CTRL, l, changegroupactive, r"
 
 	# Positioning mod
 	"$mod CTRL, Space, togglefloating"
+	"$mod, F, fullscreen, 0"
+
 
         # Switch workspaces with mod + [0-9]
         "$mod, 1, workspace, 1"
@@ -176,6 +183,14 @@
         # Scroll through existing workspaces with mod + scroll
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
+      ];
+
+      binde = [
+	# Window resize
+	"$mod ALT, h, resizeactive, -10 0"
+	"$mod ALT, l, resizeactive, 10 0"
+	"$mod ALT, k, resizeactive, 0 -10"
+	"$mod ALT, j, resizeactive, 0 10"
       ];
       
       bindl = [

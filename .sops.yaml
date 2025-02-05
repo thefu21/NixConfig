@@ -1,0 +1,7 @@
+keys:
+  - &laptop-thefu21 age1ysdyxfhx0zenq8lthd537wfxj6ta7n6jhzyzd3ce89g9q72gduqswdtguf
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+    - age:
+      - *laptop-thefu21

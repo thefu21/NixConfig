@@ -1,7 +1,9 @@
 {
   config,
   ...
-}: {
+}:
+with config.lib.stylix.colors.withHashtag;
+{
   programs.waybar = {
     enable = true;
 
@@ -9,8 +11,7 @@
       waybar = {
         layer = "bottom";
         position = "top";
-	margin-top = 0;
-	margin-left = 0;
+	margin-top = 0; margin-left = 0;
 	margin-right = 0;
         margin-bottom = 0;
         spacing = 10;
@@ -141,7 +142,7 @@
           format = "󰥔  {:%H:%M}";
           format-alt = "󰥔  {:%A, %d.%m.%Y (%R)} ";
           tooltip-format = ''
-            <span size='9pt'>{calendar}</span>'';
+            <span>{calendar}</span>'';
         };
 
         "custom/logo" = {
@@ -151,9 +152,7 @@
       };
     };
 
-    style = let
-      colors = config.stylix.base16Scheme;
-    in ''
+    style = ''
       * {
         min-height: 0px;
       }
@@ -166,21 +165,21 @@
         border-radius: 10px;
         margin: 4px 4px 4px 4px;
 	padding: 0 4px;
-        background-color: #${colors.base00};
-        box-shadow: 0px 0px 3px 0px #${colors.base00};
+        background-color: ${base00};
+        box-shadow: 0px 0px 3px 0px ${base00};
       }
 
       tooltip {
         font-family: "FiraCode Nerd Font SemBd";
         font-size: 13px;
-        color: #${colors.base05};
-        background-color: #${colors.base00};
+        color: ${base05};
+        background-color: ${base00};
         border-radius: 10px;
       }
 
       #workspaces {
         font-size: 0px;
-        background: #${colors.base00};
+        background: ${base00};
         margin-top: 3px;
         margin-bottom: 3px;
         padding: 10px 0px;
@@ -192,21 +191,21 @@
         min-width: 10px;
         min-height: 10px;
         border-radius: 10px;
-        background: #${colors.base07};
+        background: ${base07};
         transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.empty {
-        background: #${colors.base02};
+        background: ${base02};
       }
 
       #workspaces button.active {
-        background: #${colors.base0D};
+        background: ${base0D};
         min-width: 40px;
       }
 
       #workspaces button:hover {
-        background: #${colors.base06};
+        background: ${base06};
         min-width: 40px;
         background-size: 400% 400%;
       }
@@ -226,7 +225,7 @@
       #custom-showtray {
         font-family: "FiraCode Nerd Font SemBd";
         font-size: 14px;
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
@@ -237,48 +236,48 @@
       }
 
       #cpu {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #battery {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #memory {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #network {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #pulseaudio {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #clock {
-        color: #${colors.base05};
+        color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
 
       #custom-logo {
-	color: #${colors.base0D};
+	color: ${base0D};
 	font-size: 24px;
       }
 
       #backlight {
-	color: #${colors.base05};
+	color: ${base05};
         padding-left: 2px;
         padding-right: 2px;
       }
