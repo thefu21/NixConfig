@@ -1,19 +1,26 @@
-{inputs, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     inputs.nvf.homeManagerModules.default
   ];
 
   programs.nvf.enable = true;
   programs.nvf.settings.vim = {
+    options = {
+      tabstop = 2;
+      shiftwidth = 2;
+    };
+
     theme = {
       enable = true;
-      name = "catppuccin";
-      style = "mocha";
-      #      base16-colors = config.stylix.base16Scheme;
+      name = "base16";
+      base16-colors = config.stylix.base16Scheme;
     };
     statusline.lualine = {
       enable = true;
-      theme = "catppuccin";
     };
 
     spellcheck = {
@@ -46,7 +53,7 @@
       cheatsheet.enable = true;
       whichKey.enable = true;
     };
-    
+
     comments.comment-nvim.enable = true;
 
     keymaps = [
@@ -55,6 +62,13 @@
         mode = "n";
         action = ":Neotree<CR>";
         silent = true;
+      }
+      {
+        key = "<C-s>";
+        mode = "n";
+        action = ":set listchars=tab:>-,lead:.<CR> :set list<CR>";
+        silent = true;
+        desc = "Show leading tabs/spaces";
       }
     ];
   };

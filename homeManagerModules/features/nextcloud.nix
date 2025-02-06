@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   sops.templates."rclone-nextcloud.conf".content = ''
     [nextcloud]
       type = webdav
@@ -11,8 +15,8 @@
   systemd.user.services.rclone-nextcloud = {
     Unit = {
       Description = "Rclone Nextcloud Mount";
-      After = [ "network-online.target" ];
-      Wants = [ "network-online.target" ];
+      After = ["network-online.target"];
+      Wants = ["network-online.target"];
     };
     Service = {
       Type = "notify";
@@ -27,7 +31,7 @@
       Restart = "on-failure";
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = ["default.target"];
     };
   };
 }
