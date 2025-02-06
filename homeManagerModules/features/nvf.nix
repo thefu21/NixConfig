@@ -66,9 +66,9 @@
       {
         key = "<C-s>";
         mode = "n";
-        action = ":set listchars=tab:>-,lead:.<CR> :set list<CR>";
+        action = ":if &list | set nolist | else | set list listchars=tab:>-,lead:. | endif<CR>";
         silent = true;
-        desc = "Show leading tabs/spaces";
+        desc = "Toggle leading tabs/spaces";
       }
     ];
   };
