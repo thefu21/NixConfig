@@ -23,7 +23,7 @@ $docker_context\
 $conda\
 [](fg:color_15 bg:color_9)\
 $time\
-[ ](fg:color_9)\
+[ ](fg:color_9)\
 $line_break$character"""
 
 palette = 'stylix'
