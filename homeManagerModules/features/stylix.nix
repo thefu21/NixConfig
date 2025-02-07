@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }: {
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.stylix.homeManagerModules.stylix
   ];
@@ -31,16 +34,16 @@
 
     fonts = {
       monospace = {
-	package = pkgs.nerd-fonts.fira-code;
-	name = "FiraCode Nerd Font Mono";
+        package = pkgs.nerd-fonts.fira-code;
+        name = "FiraCode Nerd Font Mono";
       };
       sansSerif = {
-	package = pkgs.noto-fonts;
-	name = "Noto Sans";
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
       };
       serif = {
-	package = pkgs.noto-fonts;
-	name = "Noto Serif";
+        package = pkgs.noto-fonts;
+        name = "Noto Serif";
       };
 
       sizes = {
@@ -60,7 +63,16 @@
     targets.waybar.enable = false;
     targets.wofi.enable = false;
 
-    polarity = "dark";
+    iconTheme = {
+      enable = true;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "blue";
+      };
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
+    };
 
+    polarity = "dark";
   };
 }

@@ -9,17 +9,21 @@
   home.packages = with pkgs; [
     libreoffice
     hyprshot
+    xfce.exo
+    xfce.thunar
+    xfce.thunar-archive-plugin
+    xfce.thunar-volman
+    xfce.tumbler
+    xfce.xfconf
   ];
 
   home.file = {
   };
 
-  programs.fish = {
-    enable = true;
-  };
-
   home.sessionVariables = {
     EDITOR = "nvim";
+    BROWSER = "firefox";
+    TERMINAL = "alacritty";
   };
 
   programs.home-manager.enable = true; 

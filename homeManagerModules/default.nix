@@ -12,5 +12,6 @@ in {
     ./features/fish.nix
     ./features/starship
     ./features/nvf.nix
+    ./features/swaync.nix
   ];
 }

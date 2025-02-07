@@ -1,9 +1,5 @@
-{
-  config,
-  ...
-}:
-with config.lib.stylix.colors.withHashtag;
-{
+{config, ...}:
+with config.lib.stylix.colors.withHashtag; {
   programs.waybar = {
     enable = true;
 
@@ -11,8 +7,9 @@ with config.lib.stylix.colors.withHashtag;
       waybar = {
         layer = "bottom";
         position = "top";
-	margin-top = 0; margin-left = 0;
-	margin-right = 0;
+        margin-top = 0;
+        margin-left = 0;
+        margin-right = 0;
         margin-bottom = 0;
         spacing = 10;
         name = "waybar";
@@ -22,9 +19,30 @@ with config.lib.stylix.colors.withHashtag;
         fixed-center = true;
         reload_style_on_change = true;
 
-        modules-left = [ "custom/logo"  "hyprland/window" ];
-        modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "group/systray" "cpu" "memory" "battery" "network" "pulseaudio" "backlight" "clock" ];
+        modules-left = ["custom/logo" "hyprland/window"];
+        modules-center = ["hyprland/workspaces"];
+        modules-right = ["group/systray" "cpu" "memory" "battery" "network" "pulseaudio" "backlight" "clock" "custom/notification"];
+
+        "custom/notification" = {
+          tooltip = false;
+          format = "{icon} ";
+          format-icons = {
+            notification = "󰂚<span foreground='red'><sup></sup></span>";
+            none = "󰂚";
+            dnd-notification = "󰂛<span foreground='red'><sup></sup></span>";
+            dnd-none = "󰂛";
+            inhibited-notification = "󰂛<span foreground='red'><sup></sup></span>";
+            inhibited-none = "󰂚";
+            dnd-inhibited-notification = "󰂛<span foreground='red'><sup></sup></span>";
+            dnd-inhibited-none = "󰂛";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
+        };
 
         "hyprland/workspaces" = {
           active-only = false;
@@ -49,7 +67,7 @@ with config.lib.stylix.colors.withHashtag;
           };
         };
 
-	"group/systray" = {
+        "group/systray" = {
           "orientation" = "horizontal";
           "modules" = ["custom/showtray" "tray"];
           "drawer" = {
@@ -58,7 +76,7 @@ with config.lib.stylix.colors.withHashtag;
           };
         };
 
-	"custom/showtray" = {
+        "custom/showtray" = {
           "format" = "";
           "tooltip" = false;
         };
@@ -80,11 +98,11 @@ with config.lib.stylix.colors.withHashtag;
           tooltip = false;
         };
 
-	backlight = {
-	  format = "{icon} {percent}%";
-	  format-icons = ["󰃞" "󰃟" "󰃠"];
-	  tooltip = false;
-	};
+        backlight = {
+          format = "{icon} {percent}%";
+          format-icons = ["󰃞" "󰃟" "󰃠"];
+          tooltip = false;
+        };
 
         battery = {
           format = "{icon} {capacity}%";
@@ -104,7 +122,7 @@ with config.lib.stylix.colors.withHashtag;
         };
 
         network = {
-	  format-disconnected = " Disconnected";
+          format-disconnected = " Disconnected";
           format-ethernet = "󱘖 Wired";
           format-linked = "󱘖 {ifname} (No IP)";
           format-wifi = "󰤨 {essid}";
@@ -117,14 +135,15 @@ with config.lib.stylix.colors.withHashtag;
         pulseaudio = {
           format = "{icon} {volume}%";
           format-muted = " ";
+          on-click-right = "pavucontrol";
           format-icons = {
             default = ["" " " " " " " " " " " " "];
           };
           tooltip = false;
         };
 
-	clock = {
-	  actions = {
+        clock = {
+          actions = {
             on-click-right = "mode";
           };
           calendar = {
@@ -148,140 +167,148 @@ with config.lib.stylix.colors.withHashtag;
         "custom/logo" = {
           exec = "echo ' '";
           format = "{}";
-	  tooltip = false;
+          tooltip = false;
         };
       };
     };
 
     style = ''
-      * {
-        min-height: 0px;
-      }
+           * {
+             min-height: 0px;
+           }
 
-      window#waybar {
-        background-color: transparent;
-      }
+           window#waybar {
+             background-color: transparent;
+           }
 
-      window#waybar > box {
-        border-radius: 10px;
-        margin: 4px 4px 4px 4px;
-	padding: 0 4px;
-        background-color: ${base00};
-        box-shadow: 0px 0px 3px 0px ${base00};
-      }
+           window#waybar > box {
+             border-radius: 10px;
+             margin: 4px 4px 4px 4px;
+             padding: 0 4px;
+             background-color: ${base00};
+             box-shadow: 0px 0px 3px 0px ${base00};
+           }
 
-      tooltip {
-        font-family: "FiraCode Nerd Font SemBd";
-        font-size: 13px;
-        color: ${base05};
-        background-color: ${base00};
-        border-radius: 10px;
-      }
+           tooltip {
+             font-family: "FiraCode Nerd Font SemBd";
+             font-size: 13px;
+             color: ${base05};
+             background-color: ${base00};
+             border-radius: 10px;
+           }
 
-      #workspaces {
-        font-size: 0px;
-        background: ${base00};
-        margin-top: 3px;
-        margin-bottom: 3px;
-        padding: 10px 0px;
-      }
+           #workspaces {
+             font-size: 0px;
+             background: ${base00};
+             margin-top: 3px;
+             margin-bottom: 3px;
+             padding: 10px 0px;
+           }
 
-      #workspaces button {
-        padding: 0px;
-        margin: 0px 5px;
-        min-width: 10px;
-        min-height: 10px;
-        border-radius: 10px;
-        background: ${base07};
-        transition: all 0.3s ease-in-out;
-      }
+           #workspaces button {
+             padding: 0px;
+             margin: 0px 5px;
+             min-width: 10px;
+             min-height: 10px;
+             border-radius: 10px;
+             background: ${base07};
+             transition: all 0.3s ease-in-out;
+           }
 
-      #workspaces button.empty {
-        background: ${base02};
-      }
+           #workspaces button.empty {
+             background: ${base02};
+           }
 
-      #workspaces button.active {
-        background: ${base0D};
-        min-width: 40px;
-      }
+           #workspaces button.active {
+             background: ${base0D};
+             min-width: 40px;
+           }
 
-      #workspaces button:hover {
-        background: ${base06};
-        min-width: 40px;
-        background-size: 400% 400%;
-      }
+           #workspaces button:hover {
+             background: ${base06};
+             min-width: 40px;
+             background-size: 400% 400%;
+           }
 
-      #window,
-      #cpu,
-      #memory,
-      #network,
-      #pulseaudio,
-      #battery,
-      #backlight,
-      #clock {
-        font-family: "FiraCode Nerd Font SemBd";
-        font-size: 13px;
-      }
+           #window,
+           #cpu,
+           #memory,
+           #network,
+           #pulseaudio,
+           #battery,
+           #backlight,
+           #clock,
+           #custom-notification
+           {
+             font-family: "FiraCode Nerd Font SemBd";
+             font-size: 13px;
+           }
 
-      #custom-showtray {
-        font-family: "FiraCode Nerd Font SemBd";
-        font-size: 14px;
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #custom-showtray {
+             font-family: "FiraCode Nerd Font SemBd";
+             font-size: 14px;
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #tray {
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #tray {
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #cpu {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #cpu {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #battery {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #battery {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #memory {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #memory {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #network {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #network {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #pulseaudio {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #pulseaudio {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #clock {
-        color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #clock {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #custom-logo {
-	color: ${base0D};
-	font-size: 24px;
-      }
+           #custom-notification {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
 
-      #backlight {
-	color: ${base05};
-        padding-left: 2px;
-        padding-right: 2px;
-      }
+           #custom-logo {
+            color: ${base0D};
+            font-size: 24px;
+           }
+
+           #backlight {
+             color: ${base05};
+             padding-left: 2px;
+             padding-right: 2px;
+           }
     '';
   };
 }
