@@ -6,9 +6,12 @@ with config.stylix.base16Scheme;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      set fish_greeting
     '';
     shellInit = ''
+      set fish_greeting
+
+      set -x EDITOR nvim
+
       set -g fish_color_command ${base0D}
       set -g fish_color_quote ${base0F}
       set -g fish_color_error ${base08}

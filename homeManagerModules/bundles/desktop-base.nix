@@ -10,8 +10,10 @@
   myHomeManager.starship.enable = lib.mkDefault true;
   myHomeManager.sops.enable = lib.mkDefault true;
   myHomeManager.nextcloud.enable = lib.mkDefault true;
+  myHomeManager.lf.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    kitty
     firefox
     libreoffice
     xfce.exo
@@ -20,7 +22,6 @@
     xfce.thunar-volman
     xfce.tumbler
     xfce.xfconf
-    alacritty
     libnotify
     feh
     neofetch
@@ -31,6 +32,6 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     BROWSER = "firefox";
-    TERMINAL = "alacritty";
+    TERMINAL = "kitty";
   };
 }

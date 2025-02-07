@@ -5,7 +5,7 @@
     settings = {
       monitor = ",preferred,auto,auto";
 
-      "$terminal" = "alacritty";
+      "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "pkill wofi || wofi -a --show drun";
 
