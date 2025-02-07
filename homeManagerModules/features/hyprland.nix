@@ -1,8 +1,4 @@
 {...}: {
-  imports = [
-    ./waybar.nix
-    ./wofi.nix
-  ];
   # Konfiguration für den Wayland-Fenstermanager Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
