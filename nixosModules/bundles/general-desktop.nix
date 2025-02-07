@@ -18,6 +18,11 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    brightnessctl
+  ];
+
   programs.fish.enable = true;
   users.users.thefu21.shell = pkgs.fish;
 }
