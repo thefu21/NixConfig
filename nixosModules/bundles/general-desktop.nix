@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.nm-applet.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -9,7 +13,7 @@
     sops.enable = lib.mkDefault true;
   };
 
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  services.xserver.excludePackages = [pkgs.xterm];
   services.xserver.desktopManager.xterm.enable = false;
   xdg.terminal-exec = {
     enable = true;

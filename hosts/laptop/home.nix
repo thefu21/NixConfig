@@ -18,6 +18,8 @@
     bundles.desktop-hyprland.enable = true;
   };
 
+  nixpkgs.config.allowUnfreePredicate = _: true;
+
   programs.home-manager.enable = true;
 
 

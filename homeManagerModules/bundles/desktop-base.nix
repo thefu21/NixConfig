@@ -3,6 +3,12 @@
   lib,
   ...
 }: {
+  nixpkgs = {
+    config = {
+      experimental-features = "nix-command flakes";
+    };
+  };
+
   myHomeManager.fish.enable = lib.mkDefault true;
   myHomeManager.nvf.enable = lib.mkDefault true;
   myHomeManager.stylix.enable = lib.mkDefault true;
@@ -11,22 +17,24 @@
   myHomeManager.sops.enable = lib.mkDefault true;
   myHomeManager.nextcloud.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
+  myHomeManager.kitty.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
-    kitty
     firefox
     libreoffice
     xfce.exo
-    xfce.thunar
-    xfce.thunar-archive-plugin
-    xfce.thunar-volman
+    (xfce.thunar.override {
+      thunarPlugins = [xfce.thunar-archive-plugin xfce.thunar-volman];
+    })
     xfce.tumbler
     xfce.xfconf
+    file-roller
     libnotify
     feh
     neofetch
     networkmanagerapplet
     pavucontrol
+    vlc
   ];
 
   home.sessionVariables = {

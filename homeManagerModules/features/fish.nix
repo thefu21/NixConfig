@@ -20,6 +20,11 @@ with config.stylix.base16Scheme;
       set -g fish_color_operator ${base0E}
       set -g fish_color_autosuggestion ${base05}
       set -g fish_color_normal ${base07}
+
+      # lfcd Funktion zum Verzeichniswechsel beim Beenden von lf
+      function lfcd --wraps="lf" --description="lf - Terminal file manager (changing directory on exit)"
+        cd "$(command lf -print-last-dir $argv)"
+      end
     '';
   };
 }

@@ -1,16 +1,17 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  config,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./nvidia.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
 
@@ -60,11 +61,12 @@
   users.users.thefu21 = {
     isNormalUser = true;
     description = "Theodor Fumics";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
   };
 
   programs.dconf.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "24.11"; # Did you read the comment?
 }

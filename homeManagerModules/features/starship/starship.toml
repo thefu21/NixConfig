@@ -1,7 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[░▒▓](color_13)\
 $os\
 [](bg:color_7 fg:color_13)\
 $directory\
@@ -55,6 +54,7 @@ Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 Pop = ""
+NixOS = "󱄅"
 
 [username]
 show_always = true
