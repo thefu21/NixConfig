@@ -35,6 +35,7 @@
     networkmanagerapplet
     pavucontrol
     vlc
+    inetutils
   ];
 
   home.sessionVariables = {

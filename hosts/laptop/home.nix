@@ -9,6 +9,8 @@
   home.homeDirectory = "/home/thefu21";
 
   home.packages = with pkgs; [
+    virt-viewer
+    gns3-gui
   ];
 
   home.file = {

@@ -33,6 +33,7 @@
 
   myNixOS = {
     bundles.general-desktop.enable = true;
+    virt-manager.enable = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -61,7 +62,7 @@
   users.users.thefu21 = {
     isNormalUser = true;
     description = "Theodor Fumics";
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   programs.dconf.enable = true;
