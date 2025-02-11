@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -34,6 +35,7 @@
   myNixOS = {
     bundles.general-desktop.enable = true;
     virt-manager.enable = true;
+    MariaDB-Apache.enable = true;
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

@@ -8,6 +8,9 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  services.gvfs.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
+
   myNixOS = {
     sddm.enable = lib.mkDefault true;
     sops.enable = lib.mkDefault true;

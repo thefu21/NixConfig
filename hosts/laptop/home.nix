@@ -11,6 +11,7 @@
   home.packages = with pkgs; [
     virt-viewer
     gns3-gui
+    ciscoPacketTracer8
   ];
 
   home.file = {

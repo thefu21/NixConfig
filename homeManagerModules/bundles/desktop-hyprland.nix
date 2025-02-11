@@ -12,5 +12,7 @@
 
   home.packages = with pkgs; [
     hyprshot
+    discord
+    jetbrains.idea-ultimate
   ];
 }

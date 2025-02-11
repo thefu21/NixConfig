@@ -20,7 +20,9 @@
   myHomeManager.kitty.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    alacritty
     firefox
+    thunderbird
     libreoffice
     xfce.exo
     (xfce.thunar.override {
@@ -31,7 +33,7 @@
     file-roller
     libnotify
     feh
-    neofetch
+    fastfetch
     networkmanagerapplet
     pavucontrol
     vlc
