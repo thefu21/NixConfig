@@ -56,7 +56,7 @@ with config.lib.stylix.colors.withHashtag; {
             urgent = "";
           };
           persistent-workspaces = {
-            "*" = 9;
+            "*" = 10;
           };
           on-click = "activate";
         };

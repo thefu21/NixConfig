@@ -14,5 +14,6 @@
     hyprshot
     discord
     jetbrains.idea-ultimate
+    jetbrains.datagrip
   ];
 }
