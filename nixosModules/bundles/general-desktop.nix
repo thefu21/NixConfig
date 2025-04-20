@@ -5,11 +5,13 @@
 }: {
   programs.nm-applet.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   services.gvfs.enable = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   myNixOS = {
     sddm.enable = lib.mkDefault true;
@@ -21,7 +23,7 @@
   xdg.terminal-exec = {
     enable = true;
     settings = {
-      default = [ "kitty.desktop" ];
+      default = ["kitty.desktop"];
     };
   };
 

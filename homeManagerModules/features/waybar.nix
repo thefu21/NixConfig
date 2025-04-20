@@ -46,9 +46,9 @@ with config.lib.stylix.colors.withHashtag; {
 
         "hyprland/workspaces" = {
           active-only = false;
-          all-outputs = false;
+          all-outputs = true;
           disable-scroll = true;
-          format = "";
+          format = "{name}";
           format-icons = {
             active = "";
             default = "";
@@ -56,7 +56,16 @@ with config.lib.stylix.colors.withHashtag; {
             urgent = "";
           };
           persistent-workspaces = {
-            "*" = 10;
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+            "10" = [];
           };
           on-click = "activate";
         };
@@ -173,142 +182,142 @@ with config.lib.stylix.colors.withHashtag; {
     };
 
     style = ''
-           * {
-             min-height: 0px;
-           }
+      * {
+        min-height: 0px;
+      }
 
-           window#waybar {
-             background-color: transparent;
-           }
+      window#waybar {
+        background-color: transparent;
+      }
 
-           window#waybar > box {
-             border-radius: 10px;
-             margin: 4px 4px 4px 4px;
-             padding: 0 4px;
-             background-color: ${base00};
-             box-shadow: 0px 0px 3px 0px ${base00};
-           }
+      window#waybar > box {
+        border-radius: 10px;
+        margin: 4px 4px 4px 4px;
+        padding: 0 4px;
+        background-color: ${base00};
+        box-shadow: 0px 0px 3px 0px ${base00};
+      }
 
-           tooltip {
-             font-family: "FiraCode Nerd Font SemBd";
-             font-size: 13px;
-             color: ${base05};
-             background-color: ${base00};
-             border-radius: 10px;
-           }
+      tooltip {
+        font-family: "FiraCode Nerd Font SemBd";
+        font-size: 13px;
+        color: ${base05};
+        background-color: ${base00};
+        border-radius: 10px;
+      }
 
-           #workspaces {
-             font-size: 0px;
-             background: ${base00};
-             margin-top: 3px;
-             margin-bottom: 3px;
-             padding: 10px 0px;
-           }
+                 #workspaces {
+        font-size: 0px;
+        background: ${base00};
+        margin-top: 3px;
+        margin-bottom: 3px;
+        padding: 10px 0px;
+      }
 
-           #workspaces button {
-             padding: 0px;
-             margin: 0px 5px;
-             min-width: 10px;
-             min-height: 10px;
-             border-radius: 10px;
-             background: ${base07};
-             transition: all 0.3s ease-in-out;
-           }
+      #workspaces button {
+        padding: 0px;
+        margin: 0px 5px;
+        min-width: 10px;
+        min-height: 10px;
+        border-radius: 10px;
+        background: ${base07};
+        transition: all 0.3s ease-in-out;
+      }
 
-           #workspaces button.empty {
-             background: ${base02};
-           }
+      #workspaces button.empty {
+        background: ${base02};
+      }
 
-           #workspaces button.active {
-             background: ${base0D};
-             min-width: 40px;
-           }
+      #workspaces button.active {
+        background: ${base0D};
+        min-width: 40px;
+      }
 
-           #workspaces button:hover {
-             background: ${base06};
-             min-width: 40px;
-             background-size: 400% 400%;
-           }
+      #workspaces button:hover {
+        background: ${base06};
+        min-width: 40px;
+        background-size: 400% 400%;
+      }
 
-           #window,
-           #cpu,
-           #memory,
-           #network,
-           #pulseaudio,
-           #battery,
-           #backlight,
-           #clock,
-           #custom-notification
-           {
-             font-family: "FiraCode Nerd Font SemBd";
-             font-size: 13px;
-           }
+      #window,
+      #cpu,
+      #memory,
+      #network,
+      #pulseaudio,
+      #battery,
+      #backlight,
+      #clock,
+      #custom-notification
+      {
+        font-family: "FiraCode Nerd Font SemBd";
+        font-size: 13px;
+      }
 
-           #custom-showtray {
-             font-family: "FiraCode Nerd Font SemBd";
-             font-size: 14px;
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #custom-showtray {
+        font-family: "FiraCode Nerd Font SemBd";
+        font-size: 14px;
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #tray {
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #tray {
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #cpu {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #cpu {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #battery {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #battery {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #memory {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #memory {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #network {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #network {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #pulseaudio {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #pulseaudio {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #clock {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #clock {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #custom-notification {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #custom-notification {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
 
-           #custom-logo {
-            color: ${base0D};
-            font-size: 24px;
-           }
+      #custom-logo {
+       color: ${base0D};
+       font-size: 24px;
+      }
 
-           #backlight {
-             color: ${base05};
-             padding-left: 2px;
-             padding-right: 2px;
-           }
+      #backlight {
+        color: ${base05};
+        padding-left: 2px;
+        padding-right: 2px;
+      }
     '';
   };
 }

@@ -2,14 +2,18 @@
   # Konfiguration für den Wayland-Fenstermanager Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
-    settings = {
-      monitor = ",preferred,auto,auto";
 
+    settings = {
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "pkill wofi || wofi -a --show drun";
 
       exec-once = "waybar &";
+
+      source = [
+        "~/.config/hypr/monitors.conf"
+        "~/.config/hypr/workspaces.conf"
+      ];
 
       general = {
         gaps_in = 5;

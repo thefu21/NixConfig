@@ -20,6 +20,7 @@
   myHomeManager.kitty.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    evince
     alacritty
     firefox
     thunderbird
@@ -33,11 +34,14 @@
     file-roller
     libnotify
     feh
+    qimgv
     fastfetch
     networkmanagerapplet
     pavucontrol
     vlc
     inetutils
+    yubioath-flutter
+    yubikey-manager
   ];
 
   home.sessionVariables = {

@@ -14,11 +14,6 @@
       shiftwidth = 2;
     };
 
-    theme = {
-      enable = true;
-      name = "base16";
-      base16-colors = config.stylix.base16Scheme;
-    };
     statusline.lualine = {
       enable = true;
     };
@@ -41,12 +36,20 @@
 
       nix.enable = true;
       sql.enable = true;
+
       php.enable = true;
+      php.lsp.enable = true;
+
       markdown.enable = true;
       ts.enable = true;
       html.enable = true;
       bash.enable = true;
       css.enable = true;
+    };
+
+    lsp.otter-nvim = {
+      enable = true;
+      setupOpts.buffers.set_filetype = true;
     };
 
     binds = {

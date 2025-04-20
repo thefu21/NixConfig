@@ -10,6 +10,15 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd = {
+    systemd.enable = true;
+    luks.devices."luks-b3d4cac9-572b-4fa4-b9cc-21944d6dd0d8" = {
+      fido2.passwordLess = true;
+      device = "/dev/disk/by-uuid/b3d4cac9-572b-4fa4-b9cc-21944d6dd0d8";
+      crypttabExtraOpts = ["fido2-device=auto"]; # cryptenroll
+    };
+  };
+  boot.initrd.luks.fido2Support = false;
 
   networking.hostName = "nixos"; # Define your hostname.
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -36,7 +45,16 @@
     bundles.general-desktop.enable = true;
     virt-manager.enable = true;
     mariaDB-Apache.enable = true;
+    platformio.enable = true;
+    docker.enable = true;
+    wireshark.enable = true;
+    ssh.enable = true;
   };
+
+  services.logind.extraConfig = ''
+    HandlePowerKey=suspend
+    HandlePowerKeyLongPress=poweroff
+  '';
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -64,7 +82,7 @@
   users.users.thefu21 = {
     isNormalUser = true;
     description = "Theodor Fumics";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["wireshark" "networkmanager" "wheel" "docker"];
   };
 
   programs.dconf.enable = true;

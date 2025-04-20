@@ -1,4 +1,8 @@
-{lib, pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   myHomeManager = {
     bundles.desktop-base.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
@@ -11,9 +15,16 @@
   };
 
   home.packages = with pkgs; [
+    nodejs
     hyprshot
+    nwg-displays
     discord
+    drawio
     jetbrains.idea-ultimate
+    jetbrains.pycharm-professional
+    jetbrains.phpstorm
     jetbrains.datagrip
+    jetbrains.clion
+    jetbrains.webstorm
   ];
 }

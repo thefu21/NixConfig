@@ -11,12 +11,18 @@
   services.httpd.enable = true;
   systemd.services.httpd.wantedBy = lib.mkForce [];
 
+  # PDO und MySQL-Treiber aktivieren
+  environment.systemPackages = with pkgs; [
+    php84Extensions.pdo
+    php84Extensions.pdo_mysql
+  ];
+
   services.httpd.virtualHosts = {
     "example.com" = {
-      documentRoot = "/var/www";
+      documentRoot = "/var/www/";
       locations."/".extraConfig = ''
         Options Indexes FollowSymLinks
-        AllowOverride None
+        AllowOverride All
         Require all granted
       '';
     };
