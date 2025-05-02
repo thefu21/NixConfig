@@ -25,8 +25,6 @@ $time\
 [ ](fg:color_9)\
 $line_break$character"""
 
-palette = 'stylix'
-
 [os]
 disabled = false
 style = "bg:color_13 fg:color_1"

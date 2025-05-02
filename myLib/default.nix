@@ -1,8 +1,7 @@
-{ inputs }: let
+{inputs}: let
   myLib = (import ./default.nix) {inherit inputs;};
   outputs = inputs.self.outputs;
 in rec {
-
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
 
   mkSystem = config:
@@ -12,7 +11,7 @@ in rec {
       };
       modules = [
         config
-	outputs.nixosModules.default
+        outputs.nixosModules.default
       ];
     };
 
@@ -25,7 +24,7 @@ in rec {
       };
       modules = [
         config
-	outputs.homeManagerModules.default
+        outputs.homeManagerModules.default
       ];
     };
 

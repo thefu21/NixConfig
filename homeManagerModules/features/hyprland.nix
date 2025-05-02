@@ -3,6 +3,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
+    extraConfig = ''
+      group:groupbar:font_size = 14
+      group:groupbar:indicator_height = 0
+    '';
+
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
@@ -38,6 +43,7 @@
           range = 4;
           render_power = 3;
         };
+
         blur = {
           enabled = true;
           size = 3;

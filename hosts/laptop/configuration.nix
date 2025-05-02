@@ -23,7 +23,11 @@
   networking.hostName = "nixos"; # Define your hostname.
   nix.settings.experimental-features = ["nix-command" "flakes"];
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+
+  networking.firewall = {
+    enable = true;
+    checkReversePath = "loose";
+  };
 
   time.timeZone = "Europe/Vienna";
 
@@ -49,6 +53,7 @@
     docker.enable = true;
     wireshark.enable = true;
     ssh.enable = true;
+    gnome.enable = true;
   };
 
   services.logind.extraConfig = ''

@@ -11,7 +11,6 @@
 
   myHomeManager.fish.enable = lib.mkDefault true;
   myHomeManager.nvf.enable = lib.mkDefault true;
-  myHomeManager.stylix.enable = lib.mkDefault true;
   myHomeManager.git.enable = lib.mkDefault true;
   myHomeManager.starship.enable = lib.mkDefault true;
   myHomeManager.sops.enable = lib.mkDefault true;
@@ -20,6 +19,7 @@
   myHomeManager.kitty.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    rustdesk-flutter
     evince
     alacritty
     firefox
@@ -42,6 +42,7 @@
     inetutils
     yubioath-flutter
     yubikey-manager
+    discord
   ];
 
   home.sessionVariables = {

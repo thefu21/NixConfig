@@ -30,7 +30,7 @@
       base0F = "f2cdcd"; # flamingo
     };
 
-    image = ../../wallpapers/cabin-4.png;
+    image = ../../../wallpapers/cabin-4.png;
 
     fonts = {
       monospace = {

@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
-
-with config.stylix.base16Scheme;
-
 {
+  config,
+  pkgs,
+  ...
+}:
+with config.stylix.base16Scheme; {
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

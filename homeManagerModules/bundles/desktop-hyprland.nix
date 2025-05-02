@@ -12,19 +12,11 @@
     waybar.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;
     zathura.enable = lib.mkDefault true;
+    stylix.enable = lib.mkDefault true;
   };
 
   home.packages = with pkgs; [
-    nodejs
     hyprshot
     nwg-displays
-    discord
-    drawio
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.phpstorm
-    jetbrains.datagrip
-    jetbrains.clion
-    jetbrains.webstorm
   ];
 }

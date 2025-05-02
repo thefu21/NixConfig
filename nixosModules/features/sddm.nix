@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services.displayManager = {
     sessionPackages = [pkgs.hyprland];
 
@@ -13,7 +17,7 @@
   environment.systemPackages = with pkgs; [
     (catppuccin-sddm.override {
       flavor = "mocha";
-      font  = "Noto Sans";
+      font = "Noto Sans";
       fontSize = "16";
       background = "${../../wallpapers/cabin-4.png}";
       loginBackground = true;
