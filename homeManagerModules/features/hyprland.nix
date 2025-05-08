@@ -1,5 +1,9 @@
-{...}: {
-  # Konfiguration für den Wayland-Fenstermanager Hyprland
+{pkgs, ...}: let
+  window-switch = pkgs.writeShellScript "window-switch" ''
+    #!/bin/bash
+    hyprctl dispatch focuswindow address:"$(hyprctl -j clients | ${pkgs.jq}/bin/jq 'map("\(.workspace.id) ∴ \(.workspace.name) ┇ \(.title) ┇ \(.address)")' | sed "s/,$//; s/^\[//; s/^\]//; s/^[[:blank:]]*//; s/^\"//; s/\"$//" | grep -v "^$" | wofi -dO alphabetical | grep -o "0x.*$")"
+  '';
+in {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -126,7 +130,7 @@
         "$mod, E, togglesplit" # dwindle
         "$mod, W, togglegroup" # dwindle
         "$mod, ESCAPE, exec, hyprlock"
-        "$mod, tab, exec, exec, hyprswitch gui --mod-key $mod --key tab --max-switch-offset 9 --hide-active-window-border"
+        "alt, tab, exec, ${window-switch}"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
 
         # Move focus with mod + arrow keys

@@ -17,10 +17,6 @@
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
-    #Hyprswitch
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
-    hyprswitch.inputs.nixpkgs.follows = "nixpkgs";
-
     #Stylix
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
