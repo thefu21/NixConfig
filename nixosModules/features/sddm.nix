@@ -10,7 +10,7 @@
       enable = true;
       wayland.enable = true;
       theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
+      package = lib.mkForce pkgs.kdePackages.sddm;
     };
   };
 
@@ -19,7 +19,7 @@
       flavor = "mocha";
       font = "Noto Sans";
       fontSize = "16";
-      background = "${../../wallpapers/cabin-4.png}";
+      background = "${../../wallpapers/dracula/landscape.jpg}";
       loginBackground = true;
     })
   ];

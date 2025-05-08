@@ -8,7 +8,7 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     #sops-nix
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -16,6 +16,10 @@
     #Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+    #Hyprswitch
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    hyprswitch.inputs.nixpkgs.follows = "nixpkgs";
 
     #Stylix
     stylix.url = "github:danth/stylix";
@@ -26,8 +30,13 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: let
-    myLib = import ./myLib/default.nix { inherit inputs; };
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    myLib = import ./myLib/default.nix {inherit inputs;};
   in
     with myLib; {
       nixosConfigurations = {

@@ -10,10 +10,13 @@
 
     settings = {
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "thunar";
       "$menu" = "pkill wofi || wofi -a --show drun";
 
-      exec-once = "waybar &";
+      exec-once = [
+        "waybar &"
+        "hyprswitch init --show-title --size-factor 5.5 --workspaces-per-row 5 &"
+      ];
 
       source = [
         "~/.config/hypr/monitors.conf"
@@ -101,7 +104,7 @@
       };
 
       gestures = {
-        workspace_swipe = false;
+        workspace_swipe = true;
       };
 
       device = {
@@ -118,12 +121,12 @@
         "$mod, Return, exec, $terminal"
         "$mod SHIFT, Q, killactive"
         "$mod, M, exit"
-        "$mod, E, exec, $fileManager"
         "$mod, SPACE, exec, $menu"
         "$mod, P, pseudo" # dwindle
         "$mod, E, togglesplit" # dwindle
         "$mod, W, togglegroup" # dwindle
         "$mod, ESCAPE, exec, hyprlock"
+        "$mod, tab, exec, exec, hyprswitch gui --mod-key $mod --key tab --max-switch-offset 9 --hide-active-window-border"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
 
         # Move focus with mod + arrow keys

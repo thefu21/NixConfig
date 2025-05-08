@@ -206,7 +206,7 @@ with config.lib.stylix.colors.withHashtag; {
         border-radius: 10px;
       }
 
-                 #workspaces {
+      #workspaces {
         font-size: 0px;
         background: ${base00};
         margin-top: 3px;

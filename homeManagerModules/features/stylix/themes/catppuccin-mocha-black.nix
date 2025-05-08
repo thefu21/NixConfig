@@ -1,12 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [
-    inputs.stylix.homeManagerModules.stylix
-  ];
-
+{pkgs, ...}: {
   stylix = {
     enable = true;
     autoEnable = true;
@@ -30,7 +22,7 @@
       base0F = "f2cdcd"; # flamingo
     };
 
-    image = ../../../wallpapers/cabin-4.png;
+    image = ../../../../wallpapers/catppuccin-mocha/cabin-4.png;
 
     fonts = {
       monospace = {
@@ -59,9 +51,6 @@
       name = "Bibata-Modern-Ice";
       size = 24;
     };
-
-    targets.waybar.enable = false;
-    targets.wofi.enable = false;
 
     iconTheme = {
       enable = true;

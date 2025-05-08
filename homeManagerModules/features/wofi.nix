@@ -12,69 +12,69 @@ with config.lib.stylix.colors.withHashtag; {
     };
 
     style = ''
-           * {
-             font-family: "JetBrains Mono", "Iosevka Nerd Font", archcraft, sans-serif;
-             font-size: 12px;
-             font-weight: bold;
-             outline: none;
-           }
+      * {
+        font-family: "JetBrains Mono", "Iosevka Nerd Font", archcraft, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        outline: none;
+      }
 
-           #window {
-           	background-color: ${base00};
-           	color: ${base05};
-           	border: 2px solid ${base0D};
-           	border-radius: 10px;
-           }
+      #window {
+      	background-color: ${base00};
+      	color: ${base05};
+      	border: 2px solid ${base0D};
+      	border-radius: 10px;
+      }
 
-           #outer-box {
-           	padding: 20px;
-           }
+      #outer-box {
+      	padding: 20px;
+      }
 
-           #input {
-           	background-color: ${base00};
-           	padding: 8px 12px;
-           	box-shadow: none;
-           }
+      #input {
+      	background-color: ${base00};
+      	padding: 8px 12px;
+      	box-shadow: none;
+      }
 
-           #scroll {
-           	margin-top: 20px;
-           }
+      #scroll {
+      	margin-top: 20px;
+      }
 
-           #inner-box {
-           }
+      #inner-box {
+      }
 
-           #img {
-           	padding-right: 8px;
-           }
+      #img {
+      	padding-right: 8px;
+      }
 
-           #text {
-           	color: ${base05};
-           }
+      #text {
+      	color: ${base05};
+      }
 
-           #text:selected {
-           	color: ${base00};
-           }
+      #text:selected {
+      	color: ${base00};
+      }
 
-           #entry {
-           	padding: 6px;
-           }
+      #entry {
+      	padding: 6px;
+      }
 
-           #entry:selected {
-           	background-image: linear-gradient(160deg, ${base0D}, ${base0E});
-           	color: ${base00};
-           }
+      #entry:selected {
+      	background-color: ${base0D};
+      	color: ${base00};
+      }
 
-           #unselected {
-           }
+      #unselected {
+      }
 
-           #selected {
-           }
+      #selected {
+      }
 
-           #input, #entry:selected {
-            border-radius: 4px;
-            border: none;
-            outline: none;
-           }
+      #input, #entry:selected {
+       border-radius: 4px;
+       border: none;
+       outline: none;
+      }
 
     '';
   };
