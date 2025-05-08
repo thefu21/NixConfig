@@ -63,5 +63,8 @@
     };
 
     polarity = "dark";
+
+    targets.waybar.enable = false;
+    targets.wofi.enable = false;
   };
 }
