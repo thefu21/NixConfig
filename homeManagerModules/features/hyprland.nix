@@ -1,7 +1,17 @@
 {pkgs, ...}: let
   window-switch = pkgs.writeShellScript "window-switch" ''
-    #!/bin/bash
-    hyprctl dispatch focuswindow address:"$(hyprctl -j clients | ${pkgs.jq}/bin/jq 'map("\(.workspace.id) ∴ \(.workspace.name) ┇ \(.title) ┇ \(.address)")' | sed "s/,$//; s/^\[//; s/^\]//; s/^[[:blank:]]*//; s/^\"//; s/\"$//" | grep -v "^$" | wofi -dO alphabetical | grep -o "0x.*$")"
+        #!/bin/bash
+        address=$(
+      hyprctl -j clients \
+        | ${pkgs.jq}/bin/jq -r '
+            .[] |
+            "\(.workspace.name) | \(.initialTitle) [\(.title)] | \(.address)"
+          ' \
+        | wofi -dO alphabetical \
+        | awk '{print $NF}'
+    )
+
+    hyprctl dispatch focuswindow address:"$address"
   '';
 in {
   wayland.windowManager.hyprland = {
