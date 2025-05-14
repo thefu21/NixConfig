@@ -1,25 +1,10 @@
-{pkgs, ...}: let
-  window-switch = pkgs.writeShellScript "window-switch" ''
-        #!/bin/bash
-        address=$(
-      hyprctl -j clients \
-        | ${pkgs.jq}/bin/jq -r '
-            .[] |
-            "\(.workspace.name) | \(.initialTitle) [\(.title)] | \(.address)"
-          ' \
-        | wofi -dO alphabetical \
-        | awk '{print $NF}'
-    )
-
-    hyprctl dispatch focuswindow address:"$address"
-  '';
-in {
+{...}: {
   wayland.windowManager.hyprland = {
     enable = true;
 
     extraConfig = ''
       group:groupbar:font_size = 14
-      group:groupbar:indicator_height = 0
+      group:groupbar:indicator_height = 3
     '';
 
     settings = {
@@ -29,7 +14,7 @@ in {
 
       exec-once = [
         "waybar &"
-        "hyprswitch init --show-title --size-factor 5.5 --workspaces-per-row 5 &"
+        "hyprswitch init --show-title &"
       ];
 
       source = [
@@ -140,7 +125,8 @@ in {
         "$mod, E, togglesplit" # dwindle
         "$mod, W, togglegroup" # dwindle
         "$mod, ESCAPE, exec, hyprlock"
-        "alt, tab, exec, ${window-switch}"
+        "alt, tab, exec, hyprswitch gui --max-switch-offset=0 --mod-key alt --key tab --close mod-key-release --reverse-key=key=shift --sort-recent && hyprswitch dispatch"
+        "alt shift, tab, exec, hyprswitch gui --max-switch-offset=0 --mod-key alt --key tab --close mod-key-release --reverse-key=key=shift --sort-recent && hyprswitch dispatch -r"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
 
         # Move focus with mod + arrow keys

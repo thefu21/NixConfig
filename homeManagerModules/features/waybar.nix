@@ -71,7 +71,7 @@ with config.lib.stylix.colors.withHashtag; {
         };
 
         "hyprland/window" = {
-          format = "{class}";
+          format = "{title}";
           rewrite = {
           };
         };
