@@ -29,8 +29,9 @@
 
     filetree.neo-tree.enable = true;
 
+    lsp.enable = true;
+
     languages = {
-      enableLSP = true;
       enableTreesitter = true;
       enableFormat = true;
 
