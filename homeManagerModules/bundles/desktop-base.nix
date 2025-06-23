@@ -43,6 +43,7 @@
     yubioath-flutter
     yubikey-manager
     discord
+    inkscape
   ];
 
   home.sessionVariables = {
