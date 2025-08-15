@@ -47,6 +47,7 @@
 
   myNixOS = {
     bundles.general-desktop.enable = true;
+    bundles.gaming.enable = true;
     virt-manager.enable = true;
     mariaDB-Apache.enable = true;
     platformio.enable = true;

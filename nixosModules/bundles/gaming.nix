@@ -1,0 +1,5 @@
+{...}: {
+  myNixOS = {
+    steam.enable = true;
+  };
+}
