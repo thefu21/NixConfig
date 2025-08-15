@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -99,6 +99,7 @@
 
         touchpad = {
           natural_scroll = true;
+          disable_while_typing = true;
         };
       };
 
@@ -192,6 +193,8 @@
         # Scroll through existing workspaces with mod + scroll
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
+
+        ", XF86TouchpadToggle, exec, ${config.home.homeDirectory}/.config/hypr/toggle-touchpad.sh"
       ];
 
       binde = [
@@ -224,5 +227,42 @@
         "$mod, mouse:273, resizewindow"
       ];
     };
+  };
+
+  home.file.".config/hypr/toggle-touchpad.sh" = {
+    text = ''
+      #!/bin/sh
+
+      TOUCHPAD=$(hyprctl devices | grep -i touchpad | tail -n1 | sed 's/^[[:space:]]*//')
+      VAR="device[$TOUCHPAD]:enabled"
+      STATUS_FILE="$XDG_RUNTIME_DIR/touchpad.status"
+
+      if [ -z "$XDG_RUNTIME_DIR" ]; then
+        export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+      fi
+
+      enableTouchpad() {
+        echo "true" > "$STATUS_FILE"
+        notify-send "Enabling Touchpad"
+        hyprctl keyword "$VAR" true -r
+      }
+
+      disableTouchpad() {
+        echo "false" > "$STATUS_FILE"
+        notify-send "Disabling Touchpad"
+        hyprctl keyword "$VAR" false -r
+      }
+
+      if [ ! -f "$STATUS_FILE" ]; then
+        enableTouchpad
+      else
+        case "$(cat $STATUS_FILE)" in
+          true) disableTouchpad ;;
+          false) enableTouchpad ;;
+          *) enableTouchpad ;;
+        esac
+      fi
+    '';
+    executable = true;
   };
 }
