@@ -14,7 +14,6 @@
 
       exec-once = [
         "waybar &"
-        "hyprswitch init --show-title &"
       ];
 
       source = [
@@ -126,8 +125,6 @@
         "$mod, E, togglesplit" # dwindle
         "$mod, W, togglegroup" # dwindle
         "$mod, ESCAPE, exec, hyprlock"
-        "alt, tab, exec, hyprswitch gui --max-switch-offset=0 --mod-key alt --key tab --close mod-key-release --reverse-key=key=shift --sort-recent && hyprswitch dispatch"
-        "alt shift, tab, exec, hyprswitch gui --max-switch-offset=0 --mod-key alt --key tab --close mod-key-release --reverse-key=key=shift --sort-recent && hyprswitch dispatch -r"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
 
         # Move focus with mod + arrow keys

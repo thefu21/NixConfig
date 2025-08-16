@@ -17,6 +17,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
+    #Hyprshell
+    hyprshell.url = "github:H3rmt/hyprshell?ref=hyprshell-release";
+    hyprshell.inputs.nixpkgs.follows = "nixpkgs";
+
     #Stylix
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
