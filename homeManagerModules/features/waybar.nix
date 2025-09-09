@@ -3,6 +3,11 @@ with config.lib.stylix.colors.withHashtag; {
   programs.waybar = {
     enable = true;
 
+    systemd = {
+      enable = true;
+      target = "hyprland-session.target";
+    };
+
     settings = {
       waybar = {
         layer = "bottom";

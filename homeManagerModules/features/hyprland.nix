@@ -12,10 +12,6 @@
       "$fileManager" = "thunar";
       "$menu" = "pkill wofi || wofi -a --show drun";
 
-      exec-once = [
-        "waybar &"
-      ];
-
       source = [
         "~/.config/hypr/monitors.conf"
         "~/.config/hypr/workspaces.conf"
@@ -119,7 +115,7 @@
       bind = [
         "$mod, Return, exec, $terminal"
         "$mod SHIFT, Q, killactive"
-        "$mod, M, exit"
+        "$mod SHIFT, M, exit"
         "$mod, SPACE, exec, $menu"
         "$mod, P, pseudo" # dwindle
         "$mod, E, togglesplit" # dwindle
