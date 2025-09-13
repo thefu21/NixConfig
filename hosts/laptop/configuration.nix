@@ -22,7 +22,10 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = [ pkgs.networkmanager-openvpn ];
+  };
 
   networking.firewall = {
     enable = true;
@@ -49,12 +52,13 @@
     bundles.general-desktop.enable = true;
     bundles.gaming.enable = true;
     virt-manager.enable = true;
-    mariaDB-Apache.enable = true;
+    mariaDB-Apache.enable = false;
     platformio.enable = true;
     docker.enable = true;
     wireshark.enable = true;
     ssh.enable = true;
     gnome.enable = true;
+    vmware-workstation.enable = true;
   };
 
   services.logind.extraConfig = ''
