@@ -14,7 +14,7 @@
   boot.supportedFilesystems = ["ntfs"];
 
   myNixOS = {
-    sddm.enable = lib.mkDefault true;
+    ly.enable = lib.mkDefault true;
     sops.enable = lib.mkDefault true;
   };
 

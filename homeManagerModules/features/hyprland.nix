@@ -17,6 +17,10 @@
         "~/.config/hypr/workspaces.conf"
       ];
 
+      exec-once = [
+        "systemctl --user enable --now hyprpaper.service"
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 5;
@@ -96,10 +100,6 @@
           natural_scroll = true;
           disable_while_typing = true;
         };
-      };
-
-      gestures = {
-        workspace_swipe = true;
       };
 
       device = {
