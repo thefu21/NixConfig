@@ -24,7 +24,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   networking.networkmanager = {
     enable = true;
-    plugins = [ pkgs.networkmanager-openvpn ];
+    plugins = [pkgs.networkmanager-openvpn];
   };
 
   networking.firewall = {
@@ -61,10 +61,10 @@
     vmware-workstation.enable = true;
   };
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-    HandlePowerKeyLongPress=poweroff
-  '';
+  services.logind.settings.Login = {
+    HandlePowerKey = "suspend";
+    HandlePowerKeyLongPress = "poweroff";
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

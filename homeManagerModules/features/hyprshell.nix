@@ -15,7 +15,7 @@
           key = "";
           # modifier = "super";
           launcher = {
-            enable = false;
+            # enable = false;
             max_items = 6;
             plugins.websearch = {
               enable = true;

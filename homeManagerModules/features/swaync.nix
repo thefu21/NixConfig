@@ -155,7 +155,6 @@
     
     .notification-content {
       background: @base00;
-      border: 1px solid @base0D;
     }
     
     .floating-notifications.background .notification-row .notification-background {

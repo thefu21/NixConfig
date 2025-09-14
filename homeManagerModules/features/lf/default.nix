@@ -4,7 +4,7 @@
   programs.lf.keybindings = {
     "." = "set hidden!";
     gn = "cd ~/Nextcloud";
-    gs = "cd ~/Nextcloud/Schule/24-25";
+    gs = "cd ~/Nextcloud/Schule/25-26";
     gd = "cd ~/Downloads";
     gD = "cd ~/Documents/";
     x = "cut";

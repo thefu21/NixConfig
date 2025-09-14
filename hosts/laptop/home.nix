@@ -19,7 +19,7 @@
     bundles.jetbrains.enable = true;
     bundles.network-tools.enable = true;
     #    bundles.gaming.enable = true;
-    themes.dracula.enable = true;
+    themes.catppuccin-mocha-black.enable = true;
   };
 
   nixpkgs.config.allowUnfreePredicate = _: true;
