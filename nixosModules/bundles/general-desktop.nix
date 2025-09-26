@@ -16,6 +16,7 @@
   myNixOS = {
     ly.enable = lib.mkDefault true;
     sops.enable = lib.mkDefault true;
+    printing.enable = lib.mkDefault true;
   };
 
   services.xserver.excludePackages = [pkgs.xterm];
