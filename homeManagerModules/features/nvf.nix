@@ -1,6 +1,6 @@
 {
   inputs,
-  config,
+  pkgs,
   ...
 }: {
   imports = [
@@ -31,8 +31,11 @@
 
     lsp.enable = true;
 
+    treesitter.grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
+
     languages = {
       enableTreesitter = true;
+
       enableFormat = true;
 
       nix.enable = true;
@@ -41,11 +44,15 @@
       php.enable = true;
       php.lsp.enable = true;
 
-      markdown.enable = true;
       ts.enable = true;
       html.enable = true;
       bash.enable = true;
       css.enable = true;
+
+      markdown = {
+        enable = true;
+        extensions.markview-nvim.enable = true;
+      };
     };
 
     lsp.otter-nvim = {
@@ -59,6 +66,8 @@
     };
 
     comments.comment-nvim.enable = true;
+
+    utility.preview.markdownPreview.enable = true;
 
     keymaps = [
       {
