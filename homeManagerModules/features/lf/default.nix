@@ -15,7 +15,7 @@
   };
 
   programs.lf.commands = {
-    dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+    dragon-out = ''%${pkgs.dragon-drop}/bin/dragon-drop -a -x "$fx"'';
     mkdir = ''%mkdir $1'';
     extract = ''%{{
       set -f
