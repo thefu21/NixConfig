@@ -6,5 +6,6 @@
     jetbrains.datagrip
     jetbrains.clion
     jetbrains.webstorm
+    python3
   ];
 }
