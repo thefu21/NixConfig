@@ -17,10 +17,6 @@
         "~/.config/hypr/workspaces.conf"
       ];
 
-      exec-once = [
-        "systemctl --user enable --now hyprpaper.service"
-      ];
-
       general = {
         gaps_in = 5;
         gaps_out = 5;
