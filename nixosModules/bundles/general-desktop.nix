@@ -14,7 +14,7 @@
   boot.supportedFilesystems = ["ntfs"];
 
   myNixOS = {
-    ly.enable = lib.mkDefault true;
+    greetd.enable = lib.mkDefault true;
     sops.enable = lib.mkDefault true;
     printing.enable = lib.mkDefault true;
   };
