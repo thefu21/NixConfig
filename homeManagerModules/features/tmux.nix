@@ -14,11 +14,16 @@ in {
     shortcut = "s";
     keyMode = "vi";
 
+    plugins = with pkgs; [
+      tmuxPlugins.vim-tmux-navigator
+    ];
+
     extraConfig = ''
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
       set -g renumber-windows on
       set -g status-position top
+      set -g status-interval 2
 
       bind-key h select-pane -L
       bind-key j select-pane -D

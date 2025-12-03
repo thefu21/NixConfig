@@ -14,6 +14,12 @@
       shiftwidth = 2;
     };
 
+    extraPlugins = {
+      vim-tmux-navigator = {
+        package = pkgs.vimPlugins.vim-tmux-navigator;
+      };
+    };
+
     statusline.lualine = {
       enable = true;
     };
@@ -82,6 +88,34 @@
         action = ":if &list | set nolist | else | set list listchars=tab:>-,lead:. | endif<CR>";
         silent = true;
         desc = "Toggle leading tabs/spaces";
+      }
+      {
+        key = "<C-h>";
+        mode = "n";
+        action = ":wincmd h<CR>";
+        silent = true;
+        desc = "Go to the left window";
+      }
+      {
+        key = "<C-j>";
+        mode = "n";
+        action = ":wincmd j<CR>";
+        silent = true;
+        desc = "Go to the down window";
+      }
+      {
+        key = "<C-k>";
+        mode = "n";
+        action = ":wincmd k<CR>";
+        silent = true;
+        desc = "Go to the up window";
+      }
+      {
+        key = "<C-l>";
+        mode = "n";
+        action = ":wincmd l<CR>";
+        silent = true;
+        desc = "Go to the right window";
       }
     ];
   };

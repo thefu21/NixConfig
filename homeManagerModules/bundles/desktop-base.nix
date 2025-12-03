@@ -20,6 +20,7 @@
   myHomeManager.kitty.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
+    lazygit
     rustdesk-flutter
     evince
     alacritty
