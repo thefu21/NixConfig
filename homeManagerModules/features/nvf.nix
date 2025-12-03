@@ -75,6 +75,11 @@
 
     utility.preview.markdownPreview.enable = true;
 
+    git.vim-fugitive.enable = true;
+    git.gitsigns = {
+      enable = true;
+    };
+
     keymaps = [
       {
         key = "<C-b>";
