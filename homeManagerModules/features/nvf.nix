@@ -77,7 +77,7 @@
         silent = true;
       }
       {
-        key = "<C-s>";
+        key = "gs";
         mode = "n";
         action = ":if &list | set nolist | else | set list listchars=tab:>-,lead:. | endif<CR>";
         silent = true;

@@ -11,6 +11,7 @@
 
   myHomeManager.fish.enable = lib.mkDefault true;
   myHomeManager.nvf.enable = lib.mkDefault true;
+  myHomeManager.tmux.enable = lib.mkDefault true;
   myHomeManager.git.enable = lib.mkDefault true;
   myHomeManager.starship.enable = lib.mkDefault true;
   myHomeManager.sops.enable = lib.mkDefault true;
