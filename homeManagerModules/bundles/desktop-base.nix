@@ -27,12 +27,13 @@
     firefox
     thunderbird
     libreoffice
-    xfce.exo
-    (xfce.thunar.override {
-      thunarPlugins = [xfce.thunar-archive-plugin xfce.thunar-volman];
+    xfce4-exo
+    (thunar.override {
+      thunarPlugins = [thunar-archive-plugin thunar-volman];
     })
-    xfce.tumbler
-    xfce.xfconf
+    tumbler
+    pdfarranger
+    xfconf
     file-roller
     libnotify
     feh
