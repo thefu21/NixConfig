@@ -17,6 +17,10 @@
         "~/.config/hypr/workspaces.conf"
       ];
 
+      exec-once = [
+        "systemctl --user start hyprpolkitagent"
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 5;
