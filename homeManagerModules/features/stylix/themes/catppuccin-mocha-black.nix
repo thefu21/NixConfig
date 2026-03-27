@@ -52,7 +52,7 @@
       size = 24;
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.catppuccin-papirus-folders.override {
         flavor = "mocha";

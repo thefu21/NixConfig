@@ -26,7 +26,10 @@
 
     spellcheck = {
       enable = true;
-      languages = ["en" "de"];
+      languages = [
+        "en"
+        "de"
+      ];
     };
 
     telescope.enable = true;
@@ -35,7 +38,21 @@
 
     filetree.neo-tree.enable = true;
 
-    lsp.enable = true;
+    lsp = {
+      enable = true;
+      formatOnSave = false;
+      mappings.format = null;
+    };
+
+    formatter.conform-nvim = {
+      enable = true;
+      setupOpts = {
+        format_on_save = {
+          timeout_ms = 500;
+          lsp_fallback = true;
+        };
+      };
+    };
 
     treesitter.grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
 
@@ -54,6 +71,18 @@
       html.enable = true;
       bash.enable = true;
       css.enable = true;
+
+      python = {
+        enable = true;
+
+        format.enable = true;
+        format.type = ["ruff"];
+
+        lsp = {
+          enable = true;
+          servers = ["basedpyright"];
+        };
+      };
 
       markdown = {
         enable = true;
@@ -121,6 +150,13 @@
         action = ":wincmd l<CR>";
         silent = true;
         desc = "Go to the right window";
+      }
+      {
+        key = "<leader>lf";
+        mode = "n";
+        action = "<cmd>lua require('conform').format({ lsp_fallback = true })<CR>";
+        silent = true;
+        desc = "Format (Conform)";
       }
     ];
   };

@@ -73,7 +73,7 @@
       size = 24;
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.dracula-icon-theme;
       light = "Dracula";

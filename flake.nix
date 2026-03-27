@@ -4,6 +4,8 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    #GNS3
+    nixpkgs-gns3.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -30,6 +32,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixpkgs-gns3,
     ...
   } @ inputs: let
     myLib = import ./myLib/default.nix {inherit inputs;};
