@@ -47,10 +47,12 @@
     yubikey-manager
     discord
     inkscape
+    anki
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "nvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
   };
