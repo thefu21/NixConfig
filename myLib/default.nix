@@ -1,10 +1,21 @@
-{inputs}: let
-  myLib = (import ./default.nix) {inherit inputs;};
+{ inputs }:
+let
+  myLib = (import ./default.nix) { inherit inputs; };
   outputs = inputs.self.outputs;
-in rec {
+in
+rec {
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
 
-  mkSystem = config:
+  pkgsForGns3 =
+    sys:
+    import inputs.nixpkgs-gns3 {
+      inherit sys;
+      system = sys;
+      config.allowUnfree = true;
+    };
+
+  mkSystem =
+    config:
     inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs outputs myLib;
@@ -15,11 +26,16 @@ in rec {
       ];
     };
 
-  mkHome = sys: config:
-    inputs.home-manager.lib.homeManagerConfiguration {
+  mkHome =
+    sys: config:
+    let
       pkgs = pkgsFor sys;
+      pkgsGns3 = pkgsForGns3 sys;
+    in
+    inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = pkgs;
       extraSpecialArgs = {
-        inherit inputs myLib outputs;
+        inherit inputs myLib outputs pkgsGns3;
         backupFileExtension = "bak";
       };
       modules = [
@@ -28,60 +44,69 @@ in rec {
       ];
     };
 
-  filesIn = dir: (map (fname: dir + "/${fname}")
-    (builtins.attrNames (builtins.readDir dir)));
+  filesIn = dir: (map (fname: dir + "/${fname}") (builtins.attrNames (builtins.readDir dir)));
 
-  dirsIn = dir:
-    inputs.nixpkgs.lib.filterAttrs (name: value: value == "directory")
-    (builtins.readDir dir);
+  dirsIn =
+    dir: inputs.nixpkgs.lib.filterAttrs (name: value: value == "directory") (builtins.readDir dir);
 
   fileNameOf = path: (builtins.head (builtins.split "\\." (baseNameOf path)));
 
-  extendModule = {path, ...} @ args: {pkgs, ...} @ margs: let
-    eval =
-      if (builtins.isString path) || (builtins.isPath path)
-      then import path margs
-      else path margs;
-    evalNoImports = builtins.removeAttrs eval ["imports" "options"];
+  extendModule =
+    { path, ... }@args:
+    { pkgs, ... }@margs:
+    let
+      eval = if (builtins.isString path) || (builtins.isPath path) then import path margs else path margs;
+      evalNoImports = builtins.removeAttrs eval [
+        "imports"
+        "options"
+      ];
 
-    extra =
-      if (builtins.hasAttr "extraOptions" args) || (builtins.hasAttr "extraConfig" args)
-      then [
-        ({...}: {
-          options = args.extraOptions or {};
-          config = args.extraConfig or {};
-        })
-      ]
-      else [];
-  in {
-    imports =
-      (eval.imports or [])
-      ++ extra;
+      extra =
+        if (builtins.hasAttr "extraOptions" args) || (builtins.hasAttr "extraConfig" args) then
+          [
+            (
+              { ... }:
+              {
+                options = args.extraOptions or { };
+                config = args.extraConfig or { };
+              }
+            )
+          ]
+        else
+          [ ];
+    in
+    {
+      imports = (eval.imports or [ ]) ++ extra;
 
-    options =
-      if builtins.hasAttr "optionsExtension" args
-      then (args.optionsExtension (eval.options or {}))
-      else (eval.options or {});
+      options =
+        if builtins.hasAttr "optionsExtension" args then
+          (args.optionsExtension (eval.options or { }))
+        else
+          (eval.options or { });
 
-    config =
-      if builtins.hasAttr "configExtension" args
-      then (args.configExtension (eval.config or evalNoImports))
-      else (eval.config or evalNoImports);
-  };
+      config =
+        if builtins.hasAttr "configExtension" args then
+          (args.configExtension (eval.config or evalNoImports))
+        else
+          (eval.config or evalNoImports);
+    };
 
-  extendModules = extension: modules:
-    map
-    (f: let
-      name = fileNameOf f;
-    in (extendModule ((extension name) // {path = f;})))
-    modules;
+  extendModules =
+    extension: modules:
+    map (
+      f:
+      let
+        name = fileNameOf f;
+      in
+      (extendModule ((extension name) // { path = f; }))
+    ) modules;
 
-  forAllSystems = pkgs:
+  forAllSystems =
+    pkgs:
     inputs.nixpkgs.lib.genAttrs [
       "x86_64-linux"
       "aarch64-linux"
       "x86_64-darwin"
       "aarch64-darwin"
-    ]
-    (system: pkgs inputs.nixpkgs.legacyPackages.${system});
+    ] (system: pkgs inputs.nixpkgs.legacyPackages.${system});
 }
