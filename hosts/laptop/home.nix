@@ -20,6 +20,7 @@
     bundles.network-tools.enable = true;
     #    bundles.gaming.enable = true;
     themes.catppuccin-mocha-black.enable = true;
+    music.enable = true;
   };
 
   nixpkgs.config.allowUnfreePredicate = _: true;
