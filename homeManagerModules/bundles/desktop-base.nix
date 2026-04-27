@@ -18,6 +18,7 @@
   myHomeManager.nextcloud.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
   myHomeManager.kitty.enable = lib.mkDefault true;
+  myHomeManager.okular.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
     lazygit
@@ -27,13 +28,14 @@
     firefox
     thunderbird
     libreoffice
-    xfce4-exo
-    (thunar.override {
-      thunarPlugins = [thunar-archive-plugin thunar-volman];
+    xfce.exo
+    (xfce.thunar.override {
+      thunarPlugins = [xfce.thunar-archive-plugin xfce.thunar-volman];
     })
-    tumbler
+    xfce.tumbler
     pdfarranger
-    xfconf
+    xfce.xfconf
+    kdePackages.kleopatra
     file-roller
     libnotify
     feh

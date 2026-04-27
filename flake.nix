@@ -3,12 +3,12 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     #GNS3
     nixpkgs-gns3.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #sops-nix
@@ -20,7 +20,7 @@
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
 
     #Stylix
-    stylix.url = "github:nix-community/stylix";
+    stylix.url = "github:nix-community/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     #NVF

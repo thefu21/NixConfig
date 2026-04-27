@@ -118,7 +118,8 @@
         "$mod SHIFT, M, exit"
         "$mod, SPACE, exec, $menu"
         "$mod, P, pseudo" # dwindle
-        "$mod, E, togglesplit" # dwindle
+        "$mod, E, exec, thunar"
+        "$mod SHIFT, E, togglesplit" # dwindle
         "$mod, W, togglegroup" # dwindle
         "$mod, ESCAPE, exec, hyprlock"
         ", PRINT, exec, hyprshot -m region --clipboard-only"
